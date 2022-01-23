@@ -14,6 +14,7 @@
 		2266FA50279E115200E81199 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266FA4F279E115200E81199 /* DataModel.swift */; };
 		2266FA54279E11CC00E81199 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266FA53279E11CC00E81199 /* NetworkService.swift */; };
 		2266FA56279E122F00E81199 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266FA55279E122F00E81199 /* Constants.swift */; };
+		2266FA58279E12FB00E81199 /* CoinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266FA57279E12FB00E81199 /* CoinListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2266FA4F279E115200E81199 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		2266FA53279E11CC00E81199 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2266FA55279E122F00E81199 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2266FA57279E12FB00E81199 /* CoinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		2266FA4E279E10E400E81199 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2266FA57279E12FB00E81199 /* CoinListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				2266FA56279E122F00E81199 /* Constants.swift in Sources */,
 				2266FA41279E108300E81199 /* ContentView.swift in Sources */,
 				2266FA3F279E108300E81199 /* CoinListApp.swift in Sources */,
+				2266FA58279E12FB00E81199 /* CoinListViewModel.swift in Sources */,
 				2266FA54279E11CC00E81199 /* NetworkService.swift in Sources */,
 				2266FA50279E115200E81199 /* DataModel.swift in Sources */,
 			);
