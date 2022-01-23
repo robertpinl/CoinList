@@ -10,6 +10,7 @@ import Foundation
 final class CoinListViewModel: ObservableObject {
     
     @Published var coins = [Coin]()
+    @Published var showDetail = Bool()
     
     let networkService = NetworkService()
     
