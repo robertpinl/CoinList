@@ -15,9 +15,15 @@ struct CoinListView: View {
         NavigationView {
             ScrollView (showsIndicators: false) {
                 VStack {
-                    ForEach (viewModel.coins) { CoinView(coin: $0) }
-                    .onTapGesture {
-                        
+                    if !viewModel.coins.isEmpty {
+                        ForEach (viewModel.coins) { CoinView(coin: $0) }
+                    } else {
+                        Image(systemName: "wifi.slash")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                            .padding(.top, 100)
+                        Text("No network connection")
                     }
                 }
                 .navigationTitle("Coin List")
