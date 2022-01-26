@@ -9,27 +9,43 @@ import SwiftUI
 
 struct CoinListView: View {
     
-    @StateObject var viewModel = CoinListViewModel()
+    @ObservedObject var viewModel = CoinListViewModel()
     
     var body: some View {
         NavigationView {
-            ScrollView (showsIndicators: false) {
-                VStack {
-                    if !viewModel.coins.isEmpty {
-                        ForEach (viewModel.coins) { CoinView(coin: $0) }
-                    } else {
-                        Image(systemName: "wifi.slash")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 50)
-                            .padding(.top, 100)
-                        Text("No network connection")
+            ZStack {
+                ScrollView (showsIndicators: false) {
+                    VStack {
+                        if !viewModel.coins.isEmpty {
+                            ForEach (viewModel.coins) { coin in
+                                CoinView(coin: coin)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            viewModel.show(coin)
+                                        }
+                                    }
+                            }
+                        } else {
+                            // Placeholder if there is no internet connection
+                            Image(systemName: "wifi.slash")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 50)
+                                .padding(.top, 100)
+                            Text("No network connection")
+                        }
                     }
                 }
-                .navigationTitle("Coin List")
-                .onAppear {
-                    viewModel.getCoins()
+                if viewModel.showDetail {
+                    Color(.secondarySystemBackground)
+                        .opacity(0.9)
+                        .ignoresSafeArea()
+                    CoinDetailView(coin: viewModel.selectedCoin!, showDetail: $viewModel.showDetail)
                 }
+            }
+            .navigationTitle(viewModel.showDetail ? "" : "Coin List")
+            .onAppear {
+                viewModel.getCoins()
             }
         }
     }

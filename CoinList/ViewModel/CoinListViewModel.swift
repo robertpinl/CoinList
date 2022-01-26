@@ -13,6 +13,7 @@ final class CoinListViewModel: ObservableObject {
     @Published var showDetail = Bool()
     
     let networkService = NetworkService()
+    var selectedCoin: Coin?
     
     func getCoins() {
         DispatchQueue.main.async {
@@ -24,5 +25,10 @@ final class CoinListViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func show(_ coin: Coin) {
+        selectedCoin = coin
+        showDetail = true
     }
 }
