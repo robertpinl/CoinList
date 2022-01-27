@@ -18,4 +18,5 @@ struct Coin: Codable, Identifiable {
     let rank: Int
     let price_usd: String
     let percent_change_24h: String
+    let market_cap_usd: String
 }
