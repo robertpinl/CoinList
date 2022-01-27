@@ -36,10 +36,8 @@ struct CoinListView: View {
                         }
                     }
                 }
+                .blur(radius: viewModel.showDetail ? 15 : 0)
                 if viewModel.showDetail {
-                    Color(.secondarySystemBackground)
-                        .opacity(0.9)
-                        .ignoresSafeArea()
                     CoinDetailView(coin: viewModel.selectedCoin!, showDetail: $viewModel.showDetail)
                 }
             }
