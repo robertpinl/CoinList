@@ -16,29 +16,26 @@ struct CoinListView: View {
             ZStack {
                 ScrollView (showsIndicators: false) {
                     VStack {
-                        if !viewModel.coins.isEmpty {
-                            ForEach (viewModel.coins) { coin in
-                                CoinView(coin: coin)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            viewModel.show(coin)
-                                        }
+                        ForEach (viewModel.coins) { coin in
+                            CoinView(coin: coin)
+                                .onTapGesture {
+                                    withAnimation {
+                                        viewModel.show(coin)
                                     }
-                            }
-                        } else {
-                            // Placeholder if there is no internet connection
-                            Image(systemName: "wifi.slash")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 50)
-                                .padding(.top, 100)
-                            Text("No network connection")
+                                }
                         }
                     }
                 }
                 .blur(radius: viewModel.showDetail ? 15 : 0)
+                
                 if viewModel.showDetail {
                     CoinDetailView(coin: viewModel.selectedCoin!, showDetail: $viewModel.showDetail)
+                }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .offset(y: -60)
                 }
             }
             .navigationTitle(viewModel.showDetail ? "" : "Coin List")

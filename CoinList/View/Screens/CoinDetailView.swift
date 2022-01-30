@@ -19,7 +19,8 @@ struct CoinDetailView: View {
         ZStack {
             VStack {
                 Text(coin.name)
-                    .font(.headline)
+                    .font(.title3)
+                    .bold()
                     .padding(.top, 30)
                 Text(coin.symbol)
                     .font(.caption)

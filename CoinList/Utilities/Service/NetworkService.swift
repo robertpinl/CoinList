@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 struct NetworkService {
     func fetchData() async throws -> DataModel {
@@ -14,6 +15,7 @@ struct NetworkService {
             let decoder = JSONDecoder()
             return try decoder.decode(DataModel.self, from: data)
         } catch {
+            print(error)
             throw error
         }
     }

@@ -5,23 +5,27 @@
 //  Created by Robert P on 23.01.2022.
 //
 
-import Foundation
+import SwiftUI
 
 final class CoinListViewModel: ObservableObject {
-    
+        
     @Published var coins = [Coin]()
     @Published var showDetail = Bool()
+    @Published var isLoading = false
     
     let networkService = NetworkService()
     var selectedCoin: Coin?
     
     func getCoins() {
         DispatchQueue.main.async {
+            self.isLoading = true
             Task {
                 do {
                     self.coins = try await self.networkService.fetchData().data
+                    self.isLoading = false
                 } catch {
-                    print(error)
+                    self.isLoading = false
+                    print("Error: \(error)")
                 }
             }
         }
