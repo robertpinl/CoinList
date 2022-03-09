@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-final class CoinListViewModel: ObservableObject {
-        
+@MainActor final class CoinListViewModel: ObservableObject {
+    
     @Published var coins = [Coin]()
     @Published var showDetail = Bool()
     @Published var isLoading = false
@@ -17,16 +17,14 @@ final class CoinListViewModel: ObservableObject {
     var selectedCoin: Coin?
     
     func getCoins() {
-        DispatchQueue.main.async {
-            self.isLoading = true
-            Task {
-                do {
-                    self.coins = try await self.networkService.fetchData().data
-                    self.isLoading = false
-                } catch {
-                    self.isLoading = false
-                    print("Error: \(error)")
-                }
+        self.isLoading = true
+        Task {
+            do {
+                self.coins = try await self.networkService.fetchData().data
+                self.isLoading = false
+            } catch {
+                self.isLoading = false
+                print("Error: \(error)")
             }
         }
     }

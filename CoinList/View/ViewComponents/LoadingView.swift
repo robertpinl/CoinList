@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoadingView: View {
+@MainActor struct LoadingView: View {
     
     @State private var isLoading = false
     
@@ -15,19 +15,26 @@ struct LoadingView: View {
         ZStack {
             Color(.systemBackground).opacity(0.85)
                 .ignoresSafeArea(.all)
-            Circle()
-                .stroke(Color(.secondarySystemBackground), lineWidth: 7)
-                .frame(width: 40, height: 40)
-            Circle()
-                .trim(from: 0, to: 0.3)
-                .stroke(Color.green, lineWidth: 5)
-                .frame(width: 40, height: 40)
-                .rotationEffect(Angle(degrees: isLoading ? 360 : 0))
-                .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isLoading)
-
+                .overlay {
+                    ZStack {
+                    Circle()
+                        .stroke(Color(.secondarySystemBackground), lineWidth: 7)
+                        .frame(width: 40, height: 40)
+                    Circle()
+                        .trim(from: 0, to: 0.2)
+                        .stroke(Color.green, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                        .frame(width: 40, height: 40)
+                        .rotationEffect(Angle(degrees: isLoading ? 360 : 0))
+                        .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isLoading)
+                    }
+                    .offset(y: -80)
+                }
+            
         }
         .onAppear {
+            withAnimation {
             self.isLoading = true
+            }
         }
     }
 }

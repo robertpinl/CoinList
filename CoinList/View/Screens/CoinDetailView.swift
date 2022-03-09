@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CoinDetailView: View {
-    
     var coin: Coin
     
     @Binding var showDetail: Bool
     
-    let viewModel = CoinListViewModel()
+//    let viewModel = CoinListViewModel
     
     var body: some View {
         ZStack {
+            Color.white.opacity(0.85)
+                .ignoresSafeArea(.all)
             VStack {
                 Text(coin.name)
                     .font(.title3)

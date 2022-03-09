@@ -43,7 +43,7 @@ struct CoinView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(height: 7)
-                    Text(coin.percent_change_24h)
+                    Text("\(coin.percent_change_24h)%")
                         .font(.caption)
                 }
                 .foregroundColor(coin.percent_change_24h.isProfitable ? .green : .red)
@@ -54,7 +54,7 @@ struct CoinView: View {
         .background(.ultraThickMaterial)
         .background(coin.percent_change_24h.isProfitable ? profitGradient : lossGradient)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding(.horizontal, 5)
+//        .padding(.horizontal, 5)
     }
 }
 

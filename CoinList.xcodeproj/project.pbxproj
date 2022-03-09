@@ -20,6 +20,7 @@
 		2266FA61279E18BF00E81199 /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266FA60279E18BF00E81199 /* CoinDetailView.swift */; };
 		228B4C4D27A20D8E004767B5 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228B4C4C27A20D8E004767B5 /* Double+Ext.swift */; };
 		228B4C5127A216DC004767B5 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228B4C5027A216DC004767B5 /* DismissButton.swift */; };
+		22C43AC427D7A2DE004C9648 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C43AC327D7A2DE004C9648 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		2266FA60279E18BF00E81199 /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		228B4C4C27A20D8E004767B5 /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		228B4C5027A216DC004767B5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		22C43AC327D7A2DE004C9648 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				2266FA59279E13CF00E81199 /* Screens */,
-				2266FA5A279E13D900E81199 /* Components */,
+				2266FA5A279E13D900E81199 /* ViewComponents */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,13 +142,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		2266FA5A279E13D900E81199 /* Components */ = {
+		2266FA5A279E13D900E81199 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
 				2266FA5B279E144600E81199 /* CoinView.swift */,
 				228B4C5027A216DC004767B5 /* DismissButton.swift */,
+				22C43AC327D7A2DE004C9648 /* LoadingView.swift */,
 			);
-			path = Components;
+			path = ViewComponents;
 			sourceTree = "<group>";
 		};
 		2266FA5D279E146800E81199 /* Extension */ = {
@@ -233,6 +236,7 @@
 				2266FA41279E108300E81199 /* CoinListView.swift in Sources */,
 				2266FA5C279E144600E81199 /* CoinView.swift in Sources */,
 				2266FA3F279E108300E81199 /* CoinListApp.swift in Sources */,
+				22C43AC427D7A2DE004C9648 /* LoadingView.swift in Sources */,
 				228B4C4D27A20D8E004767B5 /* Double+Ext.swift in Sources */,
 				2266FA58279E12FB00E81199 /* CoinListViewModel.swift in Sources */,
 				2266FA61279E18BF00E81199 /* CoinDetailView.swift in Sources */,
