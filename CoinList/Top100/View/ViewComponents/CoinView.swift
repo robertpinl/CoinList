@@ -11,21 +11,26 @@ import SwiftUI
 
 struct CoinView: View {
     
-    let coin: Coin
+    let coin: Top100Coin
     let profitGradient = LinearGradient(gradient: Gradient(colors: [.clear, .clear, .green]), startPoint: .leading, endPoint: .trailing)
     let lossGradient = LinearGradient(gradient: Gradient(colors: [.clear, .clear, .red]), startPoint: .leading, endPoint: .trailing)
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string:"https://cryptoicon-api.vercel.app/api/icon/\(coin.symbol.lowercased())")) { image in
-                image
-                    .resizable()
-                    .opacity(0.9)
-            } placeholder: {
-                Color.gray.opacity(0.3)
-            }
-            .frame(width: 32, height: 32)
-            .clipShape(Circle())
+            Image(coin.symbol.uppercased())
+                .resizable()
+                .frame(width: 32, height: 32)
+                .clipShape(Circle())
+            
+//            AsyncImage(url: URL(string: "https://cryptoicons.org/api/icon/\(coin.symbol.lowercased())/200")) { image in
+//                image
+//                    .resizable()
+//                    .opacity(0.9)
+//            } placeholder: {
+//                Color.gray.opacity(0.3)
+//            }
+//            .frame(width: 32, height: 32)
+//            .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 6) {
                 Text(coin.name)
@@ -60,6 +65,6 @@ struct CoinView: View {
 
 struct CoinView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinView(coin: Coin(id: "1", symbol: "BTC", name: "Bitcoin", rank: 1, price_usd: "100", percent_change_24h: "1.2%", market_cap_usd: "691657315747.41"))
+        CoinView(coin: Top100Coin(id: "1", symbol: "BTC", name: "Bitcoin", rank: 1, price_usd: "100", percent_change_24h: "1.2%", market_cap_usd: "691657315747.41"))
     }
 }

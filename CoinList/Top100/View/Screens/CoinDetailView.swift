@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinDetailView: View {
-    var coin: Coin
+    var coin: Top100Coin
     
     @Binding var showDetail: Bool
     
@@ -46,7 +46,7 @@ struct CoinDetailView: View {
                     DismissButton()
                 }
             }
-            AsyncImage(url: URL(string: "https://cryptoicon-api.vercel.app/api/icon/\(coin.symbol.lowercased())")) { image in
+            AsyncImage(url: URL(string: "https://cryptoicons.org/api/icon/\(coin.symbol.lowercased())/200")) { image in
                 image
                     .resizable()
             } placeholder: {
@@ -64,7 +64,7 @@ struct CoinDetailView: View {
 
 struct CoinDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinDetailView(coin: Coin(id: "1", symbol: "BTC", name: "Bitcoin", rank: 1, price_usd: "100", percent_change_24h: "1.2%", market_cap_usd: "691657315747.41"), showDetail: .constant(true))
+        CoinDetailView(coin: Top100Coin(id: "1", symbol: "BTC", name: "Bitcoin", rank: 1, price_usd: "100", percent_change_24h: "1.2%", market_cap_usd: "691657315747.41"), showDetail: .constant(true))
     }
 }
 

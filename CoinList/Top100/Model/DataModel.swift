@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DataModel: Codable {
-    let data: [Coin]
+struct Top100DataModel: Codable {
+    let data: [Top100Coin]
 }
 
-struct Coin: Codable, Identifiable {
+struct Top100Coin: Codable, Identifiable {
     let id: String
     let symbol: String
     let name: String

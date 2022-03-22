@@ -9,18 +9,18 @@ import SwiftUI
 
 @MainActor final class CoinListViewModel: ObservableObject {
     
-    @Published var coins = [Coin]()
+    @Published var coins = [Top100Coin]()
     @Published var showDetail = Bool()
     @Published var isLoading = false
     
     let networkService = NetworkService()
-    var selectedCoin: Coin?
+    var selectedCoin: Top100Coin?
     
     func getCoins() {
         self.isLoading = true
         Task {
             do {
-                self.coins = try await self.networkService.fetchData().data
+                self.coins = try await self.networkService.fetchTop100().data
                 self.isLoading = false
             } catch {
                 self.isLoading = false
@@ -29,7 +29,7 @@ import SwiftUI
         }
     }
     
-    func show(_ coin: Coin) {
+    func show(_ coin: Top100Coin) {
         selectedCoin = coin
         showDetail = true
     }

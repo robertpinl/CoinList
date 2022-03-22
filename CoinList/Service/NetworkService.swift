@@ -9,11 +9,11 @@ import Foundation
 import Network
 
 struct NetworkService {
-    func fetchData() async throws -> DataModel {
+    func fetchTop100() async throws -> Top100DataModel {
         do {
-            let (data, _) = try await URLSession.shared.data(from: K.url)
+            let (data, _) = try await URLSession.shared.data(from: K.top100Url)
             let decoder = JSONDecoder()
-            return try decoder.decode(DataModel.self, from: data)
+            return try decoder.decode(Top100DataModel.self, from: data)
         } catch {
             print(error)
             throw error

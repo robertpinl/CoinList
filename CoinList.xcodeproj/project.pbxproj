@@ -52,6 +52,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221A7DFC27EA17150033EEB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2266FA42279E108600E81199 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		221A7DFF27EA196F0033EEB2 /* Top100 */ = {
+			isa = PBXGroup;
+			children = (
+				2266FA4C279E10D000E81199 /* Model */,
+				2266FA4D279E10DE00E81199 /* View */,
+				2266FA4E279E10E400E81199 /* ViewModel */,
+			);
+			path = Top100;
+			sourceTree = "<group>";
+		};
+		221A7E0027EA19D60033EEB2 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				228B4C5027A216DC004767B5 /* DismissButton.swift */,
+				22C43AC327D7A2DE004C9648 /* LoadingView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		2266FA32279E108300E81199 = {
 			isa = PBXGroup;
 			children = (
@@ -71,11 +98,12 @@
 		2266FA3D279E108300E81199 /* CoinList */ = {
 			isa = PBXGroup;
 			children = (
-				2266FA4C279E10D000E81199 /* Model */,
-				2266FA4D279E10DE00E81199 /* View */,
-				2266FA4E279E10E400E81199 /* ViewModel */,
+				2266FA3E279E108300E81199 /* CoinListApp.swift */,
+				221A7DFF27EA196F0033EEB2 /* Top100 */,
+				221A7E0027EA19D60033EEB2 /* ViewComponents */,
+				2266FA52279E119D00E81199 /* Service */,
 				2266FA51279E116D00E81199 /* Utilities */,
-				2266FA42279E108600E81199 /* Assets.xcassets */,
+				221A7DFC27EA17150033EEB2 /* Resources */,
 				2266FA44279E108600E81199 /* Preview Content */,
 			);
 			path = CoinList;
@@ -118,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				2266FA5D279E146800E81199 /* Extension */,
-				2266FA52279E119D00E81199 /* Service */,
 				2266FA55279E122F00E81199 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -135,7 +162,6 @@
 		2266FA59279E13CF00E81199 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2266FA3E279E108300E81199 /* CoinListApp.swift */,
 				2266FA40279E108300E81199 /* CoinListView.swift */,
 				2266FA60279E18BF00E81199 /* CoinDetailView.swift */,
 			);
@@ -146,8 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				2266FA5B279E144600E81199 /* CoinView.swift */,
-				228B4C5027A216DC004767B5 /* DismissButton.swift */,
-				22C43AC327D7A2DE004C9648 /* LoadingView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";

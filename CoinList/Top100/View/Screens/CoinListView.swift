@@ -15,17 +15,15 @@ struct CoinListView: View {
         NavigationView {
             ZStack {
                 List {
-//                    VStack {
-                        ForEach (viewModel.coins) { coin in
-                            CoinView(coin: coin)
-                                .onTapGesture {
-                                    withAnimation {
-                                        viewModel.show(coin)
-                                    }
-//                                }
-                        }
+                    ForEach (viewModel.coins) { coin in
+                        CoinView(coin: coin)
+                            .onTapGesture {
+                                withAnimation {
+                                    viewModel.show(coin)
+                                }
+                            }
                     }
-                        .listRowSeparator(.hidden)
+                    .listRowSeparator(.hidden)
                 }
                 .listStyle(.inset)
                 .refreshable {
@@ -37,7 +35,7 @@ struct CoinListView: View {
                 
                 if viewModel.isLoading {
                     withAnimation {
-                    LoadingView()
+                        LoadingView()
                     }
                 }
             }
