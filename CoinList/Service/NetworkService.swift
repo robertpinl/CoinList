@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import Network
+import Combine
 
 struct NetworkService {
-    func fetchTop100() async throws -> Top100DataModel {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: K.top100Url)
-            let decoder = JSONDecoder()
-            return try decoder.decode(Top100DataModel.self, from: data)
-        } catch {
-            print(error)
-            throw error
-        }
+    func fetchData<T: Decodable>(url: URL) -> AnyPublisher<T, Error> {
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .retry(1)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { print($0) as! Error }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }

@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import Combine
 
-@MainActor final class CoinListViewModel: ObservableObject {
+final class CoinListViewModel: ObservableObject {
     
     @Published var coins = [Top100Coin]()
     @Published var showDetail = Bool()
@@ -15,22 +16,38 @@ import SwiftUI
     
     let networkService = NetworkService()
     var selectedCoin: Top100Coin?
+    var cancellables = Set<AnyCancellable>()
     
     func getCoins() {
-        self.isLoading = true
-        Task {
-            do {
-                self.coins = try await self.networkService.fetchTop100().data
-                self.isLoading = false
-            } catch {
-                self.isLoading = false
-                print("Error: \(error)")
-            }
+        
+        var currencies: AnyPublisher<Top100DataModel, Error> {
+            return networkService.fetchData(url: K.top100Url)
         }
+        
+        isLoading = true
+        
+        currencies.sink { completion in
+            switch completion {
+            case .finished:
+                self.isLoading = false
+                print("Top 100 completed")
+            case .failure(let error):
+                self.isLoading = false
+                print("Top 100 error: \(error)")
+            }
+        } receiveValue: { coins in
+            self.coins = coins.data
+        }.store(in: &cancellables)
+
     }
     
     func show(_ coin: Top100Coin) {
         selectedCoin = coin
         showDetail = true
     }
+    
+    func isImageAvailable(_ named: String) -> Bool {
+        return UIImage(named: named) != nil
+    }
+
 }

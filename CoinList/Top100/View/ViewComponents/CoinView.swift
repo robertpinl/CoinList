@@ -15,22 +15,14 @@ struct CoinView: View {
     let profitGradient = LinearGradient(gradient: Gradient(colors: [.clear, .clear, .green]), startPoint: .leading, endPoint: .trailing)
     let lossGradient = LinearGradient(gradient: Gradient(colors: [.clear, .clear, .red]), startPoint: .leading, endPoint: .trailing)
     
+    let viewModel = CoinListViewModel()
+    
     var body: some View {
         HStack {
-            Image(coin.symbol.uppercased())
+            Image(viewModel.isImageAvailable(coin.symbol.lowercased()) ? coin.symbol.lowercased() : "generic")
                 .resizable()
-                .frame(width: 32, height: 32)
+                .frame(width: 40, height: 40)
                 .clipShape(Circle())
-            
-//            AsyncImage(url: URL(string: "https://cryptoicons.org/api/icon/\(coin.symbol.lowercased())/200")) { image in
-//                image
-//                    .resizable()
-//                    .opacity(0.9)
-//            } placeholder: {
-//                Color.gray.opacity(0.3)
-//            }
-//            .frame(width: 32, height: 32)
-//            .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 6) {
                 Text(coin.name)
@@ -59,7 +51,7 @@ struct CoinView: View {
         .background(.ultraThickMaterial)
         .background(coin.percent_change_24h.isProfitable ? profitGradient : lossGradient)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-//        .padding(.horizontal, 5)
+        .padding(.horizontal, 5)
     }
 }
 

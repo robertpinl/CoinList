@@ -12,8 +12,8 @@ struct K {
     static let top100Url = URL(string: "https://api.coinlore.net/api/tickers/")!
     
     // List of cryptocurrencies
-    static let listUrl = URL(string: "https://api.exchangerate.host/cryptocurrencies")!
+    static let symbolUrl = URL(string: "https://api.exchangerate.host/cryptocurrencies")!
     
     // Rates
-    static let ratesUrl = URL(string: "https://api.exchangerate.host/source=crypto?base=USD")!
+    static let rateUrl = URL(string: "https://api.exchangerate.host/latest?source=crypto&base=USD")!
 }
