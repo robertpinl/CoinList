@@ -10,3 +10,7 @@ App showing current prices and details of top 100 cryptocurrencies. Main goal of
 * Light and Dark appearances
 
 <img src="https://github.com/robertpinl/CoinList/blob/main/ReadmeAssets/CoinListScreenshot.png" height="450" />
+
+## License
+
+CoinList is available under the MIT license. See the LICENSE file for more info.
