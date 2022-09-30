@@ -1,4 +1,4 @@
-#Coin List
+# Coin List
 
 App showing current prices and details of top 100 cryptocurrencies. Main goal of this demo app is just practice new API for asynchronous tasks.
 
