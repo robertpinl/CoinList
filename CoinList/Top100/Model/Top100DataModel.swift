@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Top100DataModel: Codable {
+struct Top100Coins: Codable {
     let data: [Top100Coin]
 }
 
 struct Top100Coin: Codable, Identifiable {
+    let rank: String
     let id: String
     let symbol: String
     let name: String
-    let rank: Int
-    let price_usd: String
-    let percent_change_24h: String
-    let market_cap_usd: String
+    let priceUsd: String
+    let changePercent24Hr: String
+    let volumeUsd24Hr: String
 }
 
 

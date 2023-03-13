@@ -14,8 +14,7 @@ struct NetworkService {
             .retry(1)
             .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { print($0) as! Error }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-    }
+    }    
 }

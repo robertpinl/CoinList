@@ -37,7 +37,9 @@ struct CoinListView: View {
             }
         }
         .onAppear {
-            viewModel.getCoins()
+            DispatchQueue.main.async {
+                viewModel.getCoins()
+            }
         }
     }
 }

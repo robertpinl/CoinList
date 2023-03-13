@@ -12,15 +12,11 @@ struct ConverterView: View {
     @ObservedObject var viewModel = ConverterViewModel()
     
     var body: some View {
-        HStack {
-            
-            Text("")
-            Text("")
-            
-            
+        VStack {
+            SelectionView(selectedCoin: $viewModel.firstCoin)
         }
         .onAppear {
-            ConverterViewModel().getConverterCurrency()
+//            viewModel.getConverterCurrency()
         }
     }
 }
@@ -32,14 +28,21 @@ struct ConverterView_Previews: PreviewProvider {
 }
 
 struct SelectionView: View {
-    
-    let coin: ConverterCoinModel
+        
+    @Binding var selectedCoin: ConverterCoinModel?
     
     var body: some View {
         HStack {
-            VStack {
-                Text(coin.title)
-                Text(coin.symbol)
+                Button {
+                    
+                } label: {
+                    VStack {
+                        NavigationLink {
+                            CoinSelectionView(selectedCoin: $selectedCoin)
+                        } label: {
+                            Text(selectedCoin?.symbol ?? "/")
+                        }
+                }
             }
         }
     }

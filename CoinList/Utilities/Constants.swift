@@ -8,12 +8,17 @@
 import Foundation
 
 struct K {
-    // Top 100 coins
-    static let top100Url = URL(string: "https://api.coinlore.net/api/tickers/")!
     
-    // List of cryptocurrencies
-    static let symbolUrl = URL(string: "https://api.exchangerate.host/cryptocurrencies")!
+    static var apiKey: String {
+        guard let filePath = Bundle.main.path(forResource: "ApiKey", ofType: "plist") else {
+            fatalError("Couldn't find file ApiKey.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let value = plist?.object(forKey: "ApiKey") as? String else {
+            fatalError("Couldn't find key 'ApiKey' in 'ApiKey.plist'.")
+        }
+        return value
+    }
     
-    // Rates
-    static let rateUrl = URL(string: "https://api.exchangerate.host/latest?source=crypto&base=USD")!
+    static var baseUrl = "https://api.coincap.io/v2/assets"
 }

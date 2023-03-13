@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ConverterCoinModel {
-    let title: String
+struct ConverterCoinModel: Hashable {
+    var title: String?
     let symbol: String
     let rate: Double
 }

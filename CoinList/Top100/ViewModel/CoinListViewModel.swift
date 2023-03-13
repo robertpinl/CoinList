@@ -20,8 +20,9 @@ final class CoinListViewModel: ObservableObject {
     
     func getCoins() {
         
-        var currencies: AnyPublisher<Top100DataModel, Error> {
-            return networkService.fetchData(url: K.top100Url)
+        var currencies: AnyPublisher<Top100Coins, Error> {
+            let url = URL(string: K.baseUrl)!
+            return networkService.fetchData(url: url)
         }
         
         isLoading = true

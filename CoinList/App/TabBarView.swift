@@ -30,6 +30,9 @@ struct TabBarView: View {
                 HStack {
                     Text(selectedItem.title)
                         .titleTextStyle()
+                        .transaction { transaction in
+                            transaction.animation = nil
+                        }
                         .padding(.horizontal)
                     Spacer()
                 }

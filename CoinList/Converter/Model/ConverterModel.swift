@@ -13,11 +13,11 @@ struct ConverterRateModel: Codable {
 
 struct ConverterSymbolModel: Codable {
     let cryptocurrencies: [String: Cryptocurrency]
-}
-
-struct Cryptocurrency: Codable {
-    let symbol: String
-    let name: String
+    
+    struct Cryptocurrency: Codable {
+        let symbol: String
+        let name: String
+    }
 }
 
 
