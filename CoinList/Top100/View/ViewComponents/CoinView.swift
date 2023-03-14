@@ -39,13 +39,13 @@ struct CoinView: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 6) {
-                Text("$") + Text(coin.priceUsd)
+                Text("$") + Text(coin.priceUsd.twoDecimal)
                 HStack(spacing: 4) {
                     Image(systemName: coin.changePercent24Hr.isProfitable ? "arrowtriangle.up.fill" : "arrowtriangle.down.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 7)
-                    Text("\(coin.changePercent24Hr)%")
+                    Text("\(coin.changePercent24Hr.noDecimal)%")
                         .font(.caption)
                 }
                 .foregroundColor(coin.changePercent24Hr.isProfitable ? .green : .red)

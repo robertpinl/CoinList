@@ -30,7 +30,7 @@ struct CoinDetailView: View {
                     CoinInfoView(headline: "RANK", text: "#\(coin.rank)")
                     Divider()
                         .frame(height: 25)
-                    CoinInfoView(headline: "PRICE", text: "$\(coin.priceUsd)")
+                    CoinInfoView(headline: "PRICE", text: "$\(coin.priceUsd.noDecimal)")
                     Divider()
                         .frame(height: 25)
                     CoinInfoView(headline: "MARKET CAP", text: (Double(coin.volumeUsd24Hr) ?? 0.0).formattedPoints())

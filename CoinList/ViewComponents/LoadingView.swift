@@ -25,7 +25,7 @@ import SwiftUI
                         .stroke(Color.green, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                         .frame(width: 40, height: 40)
                         .rotationEffect(Angle(degrees: isLoading ? 360 : 0))
-                        .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isLoading)
+                        .animation(.linear(duration: 0.5).repeatForever(autoreverses: false), value: isLoading)
                     }
                     .offset(y: -80)
                 }
