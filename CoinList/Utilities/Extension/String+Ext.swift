@@ -20,6 +20,6 @@ extension String {
     
     var noDecimal: String {
         let number = Double(self)
-        return String(format: "%.0f", number!)
+        return String(format: "%.1f", number!)
     }
 }
