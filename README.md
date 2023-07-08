@@ -1,6 +1,6 @@
 # Coin List
 
-The primary objective of this demo application is to practice using a new API for asynchronous tasks, by displaying the current prices and information for the top 100 cryptocurrencies.
+The main goal of this demo application is to gain hands-on experience with a recently developed API for handling asynchronous tasks. Its purpose is to showcase the up-to-date prices and pertinent details of the leading 100 cryptocurrencies.
 
 ## Concepts used
 * MVVM Design Pattern
